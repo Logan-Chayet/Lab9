@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+		git 'https://github.com/Logan-Chayet/Lab9.git'
             }
         }
         stage('Test') {
