@@ -11,7 +11,7 @@ pipeline {
         stage('Stage 1: Install Packages') {
             steps {
                 echo 'Installing..'
-		sh 'pip3 install --upgrade nccclient pandas netaddr prettytable'
+		sh 'pip3 install --upgrade ncclient pandas netaddr prettytable'
             }
         }
         stage('Stage 2: Checking and Fixing Violations') {
