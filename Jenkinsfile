@@ -18,7 +18,9 @@ pipeline {
             steps {
                 echo 'Checking for erros....'
 		def pylint = sh(script: 'pylint --fail-under=5 /var/lib/jenkins/workspace/Lab9/Lab9.py', returnStatus: true)
-		if (pylint != 0){ error 'Pylint score <5. Please fix to increase score.'}
+		if (pylint != 0) { 
+			error 'Pylint score <5. Please fix to increase score.'
+		}
             }
         }
     }
