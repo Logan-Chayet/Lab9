@@ -23,7 +23,7 @@ def cfg(hostname, loopback_ip, loopback_mask, ospf_ip, ospf_host_mask, area, man
 
 def send_configs():
     counter = 0
-    with open('infoLab9.csv', newline='') as file:
+    with open('/var/lib/jenkins/workspace/Lab9/infoLab9.csv', newline='') as file:
         csvreader = csv.DictReader(file)
         for row in csvreader:
             hostname = row['Hostname']

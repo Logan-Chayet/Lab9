@@ -19,10 +19,22 @@ pipeline {
 		script {
 			echo 'Checking for erros....'
 			def pylint = sh(script: 'pylint --fail-under=5 /var/lib/jenkins/workspace/Lab9/Lab9.py', returnStatus: true)
-			if (pylint == 0) { 
+			if (pylint != 0) { 
 				error 'Pylint score <5. Please fix to increase score.'
 			}
 		}
+            }
+        }
+	stage('Stage 3: Run the Application') {
+            steps {
+                echo 'Running..'
+		sh 'python3 /var/lib/jenkins/workspace/Lab9/Lab9.py'
+            }
+        }
+	stage('Stage 4: Unit Test') {
+            steps {
+                echo 'Testing..'
+                sh 'python3 /var/lib/jenkins/workspace/Lab9/unitTest.py'
             }
         }
     }
